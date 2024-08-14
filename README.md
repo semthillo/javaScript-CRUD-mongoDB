@@ -18,13 +18,13 @@ Suivez ces étapes pour configurer le projet sur votre machine locale en utilisa
 1. **Clonez le repository :**
 
     ```bash
-    git clone https://github.com/semthillo/javaScript-CRUD-mongoDB.git
+    git clone https://github.com/semthillo/surveyApp.git
     ```
 
 2. **Accédez au dossier du projet :**
 
     ```bash
-    cd javaScript-CRUD-mongoDB
+    cd surveyApp
     ```
 
 3. **Installez les dépendances :**
