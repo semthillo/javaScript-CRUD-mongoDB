@@ -48,7 +48,7 @@ npm start
 
 ## Documentation détaillée pour chaque fonction des modules
 
-   **surveyModule.save**
+   #### surveyModule.save
     Description :
     Cette fonction asynchrone permet d'ajouter une nouvelle enquête à la collection surveys dans MongoDB. Elle vérifie d'abord si une enquête avec le même surveyId existe déjà. Si c'est le cas, la fonction lève une erreur pour éviter les doublons.
 
@@ -69,7 +69,7 @@ npm start
 
     
 
-**surveyModule.listSurvey**
+#### surveyModule.listSurvey
     Description :
     Cette fonction asynchrone récupère et affiche la liste de toutes les enquêtes stockées dans la collection surveys de MongoDB. Elle retourne un tableau contenant tous les objets d'enquête.
 
@@ -89,7 +89,7 @@ npm start
        Utilisez cette fonction lorsque vous souhaitez récupérer et examiner toutes les enquêtes présentes dans la base de données.
 
 
-  **surveyModule.save**
+  #### surveyModule.save
     Description :
     Cette fonction asynchrone permet d'ajouter une nouvelle enquête à la collection surveys dans MongoDB. Elle vérifie d'abord si une enquête avec le même surveyId existe déjà. Si c'est le cas, la fonction lève une erreur pour éviter les doublons.
 
@@ -110,7 +110,7 @@ npm start
 
     
 
-**surveyModule.destroy**
+#### surveyModule.destroy
     Description :
     Cette fonction asynchrone supprime une enquête spécifique de la collection surveys dans MongoDB en fonction de son surveyId. Si l'enquête n'existe pas, elle retourne null et affiche un message.
 
@@ -130,7 +130,7 @@ npm start
       Utilisez cette fonction lorsque vous avez besoin de supprimer une enquête spécifique de votre base de données en fournissant son surveyId.
 
 
-**surveyModule.edit**
+#### surveyModule.edit
     Description :
     Cette fonction asynchrone permet de modifier une enquête spécifique dans la collection surveys de MongoDB en fonction de son surveyId. Si l'enquête n'existe pas, elle retourne null et affiche un message.
 
@@ -152,7 +152,7 @@ newDonnee (Object) : Un objet contenant les nouvelles données à mettre à jour
      Utilisez cette fonction pour modifier les détails d'une enquête existante dans la base de données en fournissant son surveyId et les nouvelles données.
 
 
-**questionsModule.save**
+#### questionsModule.save
     Description :
     Cette fonction asynchrone permet d'ajouter une nouvelle question à la collection questions dans MongoDB. Elle vérifie d'abord si une question avec le même questionId existe déjà. Si c'est le cas, la fonction lève une erreur pour éviter les doublons.
 
@@ -171,7 +171,7 @@ newDonnee (Object) : Un objet contenant les nouvelles données à mettre à jour
 Utilisez cette fonction lorsque vous souhaitez ajouter de nouvelles questions à votre base de données tout en garantissant que chaque question a un questionId unique.
 
 
-**questionsModule.listquestion**
+#### questionsModule.listquestion
     Description :
     Cette fonction asynchrone récupère et affiche la liste de toutes les questions stockées dans la collection questions de MongoDB. Elle retourne un tableau contenant tous les objets de question.
 
@@ -192,7 +192,7 @@ Utilisez cette fonction lorsque vous souhaitez ajouter de nouvelles questions à
 
     
 
-**questionsModule.destroy**
+#### questionsModule.destroy
     Description :
     Cette fonction asynchrone supprime une question spécifique de la collection questions dans MongoDB en fonction de son questionId. Si la question n'existe pas, elle retourne null et affiche un message.
 
@@ -212,7 +212,7 @@ Utilisez cette fonction lorsque vous souhaitez ajouter de nouvelles questions à
       Utilisez cette fonction lorsque vous avez besoin de supprimer une question spécifique de votre base de données en fournissant son surveyId.
 
 
-**answersModule.save**
+#### answersModule.save
     Description :
    Cette fonction asynchrone permet d'ajouter une nouvelle réponse à la collection answers dans MongoDB. Elle vérifie d'abord si une réponse avec le même answerId existe déjà. Si c'est le cas, la fonction lève une erreur pour éviter les doublons.
 
@@ -230,7 +230,7 @@ Utilisez cette fonction lorsque vous souhaitez ajouter de nouvelles questions à
     Cas d'utilisation :
 Utilisez cette fonction lorsque vous souhaitez ajouter de nouvelles réponses à votre base de données tout en garantissant que chaque réponse a un answerId unique.
 
-**answersModule.listanswer**
+#### answersModule.listanswer
     Description :
    Cette fonction asynchrone récupère et affiche la liste de toutes les réponses stockées dans la collection answers de MongoDB. Elle retourne un tableau contenant tous les objets de réponse.
 
@@ -250,7 +250,7 @@ Utilisez cette fonction pour obtenir une vue d'ensemble de toutes les réponses 
 
 
 
-**answersModule.destroy**
+#### answersModule.destroy
     Description :
    Cette fonction asynchrone supprime une réponse spécifique de la collection answers dans MongoDB en fonction de son answerId. Si la réponse n'existe pas, elle retourne null et affiche un message.
 
@@ -270,7 +270,7 @@ Utilisez cette fonction pour obtenir une vue d'ensemble de toutes les réponses 
 Utilisez cette fonction lorsque vous avez besoin de supprimer une réponse spécifique de votre base de données en fournissant son answerId.
 
 
-**answersModule.edit**
+#### answersModule.edit
     Description :
    Cette fonction asynchrone permet de modifier une réponse spécifique dans la collection answers de MongoDB en fonction de son answerId. Si la réponse n'existe pas, elle retourne null et affiche un message.
 
