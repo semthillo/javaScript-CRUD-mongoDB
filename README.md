@@ -49,21 +49,21 @@ npm start
 ## Documentation détaillée pour chaque fonction des modules
 
    #### surveyModule.save
-    Description :
+1. Description :
     Cette fonction asynchrone permet d'ajouter une nouvelle enquête à la collection surveys dans MongoDB. Elle vérifie d'abord si une enquête avec le même surveyId existe déjà. Si c'est le cas, la fonction lève une erreur pour éviter les doublons.
 
-    Signature :
+2. Signature :
     async function save(survey)
 
-    Paramètres :
+3. Paramètres :
 
     survey (Object) : Un objet contenant les détails de l'enquête à ajouter. L'objet doit obligatoirement inclure un champ surveyId unique.
 
-    Retourne :
+4. Retourne :
 
-    (Promise) : Retourne une promesse qui se résout avec le résultat de l'insertion si l'enquête est ajoutée avec succès. Si une enquête avec le même surveyId existe déjà, une erreur est levée
+5. (Promise) : Retourne une promesse qui se résout avec le résultat de l'insertion si l'enquête est ajoutée avec succès. Si une enquête avec le même surveyId existe déjà, une erreur est levée
 
-    Cas d'utilisation :
+6. Cas d'utilisation :
 
         Utilisez cette fonction lorsque vous souhaitez ajouter de nouvelles enquêtes à votre base de données tout en garantissant que chaque enquête a un surveyId unique.
 
@@ -86,7 +86,7 @@ npm start
 
 6. Cas d'utilisation :
 
-       Utilisez cette fonction lorsque vous souhaitez récupérer et examiner toutes les enquêtes présentes dans la base de données.
+    Utilisez cette fonction lorsque vous souhaitez récupérer et examiner toutes les enquêtes présentes dans la base de données.
 
 
   #### surveyModule.save
