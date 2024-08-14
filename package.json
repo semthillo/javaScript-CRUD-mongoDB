@@ -1,0 +1,14 @@
+{
+  "name": "brief_nosql",
+  "version": "1.0.0",
+  "description": "Conception de composants d'accès à une base de données NoSQL en JavaScript Modulaire",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thillo Sem",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^6.8.0"
+  }
+}
