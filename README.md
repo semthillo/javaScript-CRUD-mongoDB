@@ -13,18 +13,18 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants :
 
 ## Installation
 
-Suivez ces étapes pour configurer le projet sur votre machine locale :
+Suivez ces étapes pour configurer le projet sur votre machine locale en utilisant ligne de commande :
 
 1. **Clonez le repository :**
 
     ```bash
-    git clone <URL_DU_REPOSITORY>
+    git clone https://github.com/semthillo/javaScript-CRUD-mongoDB.git
     ```
 
 2. **Accédez au dossier du projet :**
 
     ```bash
-    cd survey-app
+    cd javaScript-CRUD-mongoDB
     ```
 
 3. **Installez les dépendances :**
@@ -36,7 +36,7 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
 4. **Configurez la base de données :**
 
     - Assurez-vous que MongoDB est en cours d'exécution sur votre machine locale.
-    - Mettez les paramètres de connexion dans `config/database.js`.
+    - Mettez les paramètres de connexion dans `config/db.js`.
 
 ## Utilisation
 
@@ -48,4 +48,4 @@ npm start
 
 ## Authors
 
-ABC Corporation
+Seme Thiilo
