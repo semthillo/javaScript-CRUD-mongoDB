@@ -291,7 +291,7 @@ Structure de answer:{
 
 4. Retourne :
 
-5. (Promise) : Retourne une promesse qui se résout avec le résultat de la mise à jour si la réponse est trouvée et modifiée avec succès. Si la réponse n'existe pas, la fonction retourne null.
+5. (Promise) : Retourne une promesse qui se résout avec le résultat de la mise à jour si la réponse est trouvée et modifiée avec succès. Si la réponse n'existe pas, la fonction retourne null. 
 
 6. Cas d'utilisation :
 Utilisez cette fonction pour modifier les détails d'une réponse existante dans la base de données en fournissant son answerId et les nouvelles données.

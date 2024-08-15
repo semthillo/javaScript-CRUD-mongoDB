@@ -18,7 +18,7 @@ surveyModule.save(srv);
 surveyModule.listSurvey();
 surveyModule.destroy(2);
 
-const donne = {
+const donnee = {
   name: "Enquête de Satisfaction ",
   description: "Enquête visant à évaluer votre satisfaction .",
   createdAt: new Date(),
@@ -27,7 +27,7 @@ const donne = {
     employeeRole: "Responsable",
   },
 };
-surveyModule.edit(3, donne);
+surveyModule.edit(3, donnee);
 
 const qsts = {
   questionId: 7,
