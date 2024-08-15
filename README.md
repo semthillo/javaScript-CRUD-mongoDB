@@ -287,7 +287,7 @@ Utilisez cette fonction lorsque vous avez besoin de supprimer une réponse spéc
 Structure de answer:{
     answerId(int),
     title(string)
-   } (Object) : Un objet contenant les nouvelles données à mettre à jour pour la réponse.
+   }: (Object) : Un objet contenant les nouvelles données à mettre à jour pour la réponse.
 
 4. Retourne :
 

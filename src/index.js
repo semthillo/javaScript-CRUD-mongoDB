@@ -1,4 +1,3 @@
-const { con } = require("./config/db");
 const surveyModule = require("./surveyModule");
 const questionModule = require("./questionModule");
 const answerModule = require("./answerModule");
