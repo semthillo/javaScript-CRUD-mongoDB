@@ -43,7 +43,7 @@ Suivez ces étapes pour configurer le projet sur votre machine locale en utilisa
 Pour démarrer l'application, exécutez la commande suivante :
 
 ```bash
-npm start
+node ./src/index.js
 ```
 
 ## Documentation détaillée pour chaque fonction des modules
@@ -56,8 +56,14 @@ npm start
     async function save(survey)
 
 3. Paramètres :
-
-    survey (Object) : Un objet contenant les détails de l'enquête à ajouter. L'objet doit obligatoirement inclure un champ surveyId unique.
+structure de survey :
+{surveyId (int), 
+name (string), 
+description(string), 
+createAt(date), 
+createBy(object)
+{employeeNane(string) employeeRole(string)}
+} (Object): Un objet contenant les détails de l'enquête à ajouter. L'objet doit obligatoirement inclure un champ surveyId unique.
 
 4. Retourne :
 
@@ -74,7 +80,7 @@ npm start
     Cette fonction asynchrone récupère et affiche la liste de toutes les enquêtes stockées dans la collection surveys de MongoDB. Elle retourne un tableau contenant tous les objets d'enquête.
 
 2. Signature :
-    async function listSurvey(survey)
+    async function listSurvey()
 
 3. Paramètres :
 
@@ -88,25 +94,6 @@ npm start
 
     Utilisez cette fonction lorsque vous souhaitez récupérer et examiner toutes les enquêtes présentes dans la base de données.
 
-
-  #### surveyModule.save
-1. Description :
-    Cette fonction asynchrone permet d'ajouter une nouvelle enquête à la collection surveys dans MongoDB. Elle vérifie d'abord si une enquête avec le même surveyId existe déjà. Si c'est le cas, la fonction lève une erreur pour éviter les doublons.
-
-2. Signature :
-    async function save(survey)
-
-3. Paramètres :
-
-    survey (Object) : Un objet contenant les détails de l'enquête à ajouter. L'objet doit obligatoirement inclure un champ surveyId unique.
-
-4. Retourne :
-
-5. (Promise) : Retourne une promesse qui se résout avec le résultat de l'insertion si l'enquête est ajoutée avec succès. Si une enquête avec le même surveyId existe déjà, une erreur est levée
-
- 6. Cas d'utilisation :
-
-        Utilisez cette fonction lorsque vous souhaitez ajouter de nouvelles enquêtes à votre base de données tout en garantissant que chaque enquête a un surveyId unique.
 
     
 
@@ -140,7 +127,14 @@ npm start
 3. Paramètres :
 
     surveyId (int) : L'identifiant unique de l'enquête à modifier.
-newDonnee (Object) : Un objet contenant les nouvelles données à mettre à jour pour l'enquête.
+structure de newDonnee :
+{surveyId (int), 
+name (string), 
+description(string), 
+createAt(date), 
+createBy(object)
+{employeeNane(string) employeeRole(string)}
+} (Object) : Un objet contenant les nouvelles données à mettre à jour pour l'enquête.
 
 4. Retourne :
 
@@ -161,7 +155,13 @@ newDonnee (Object) : Un objet contenant les nouvelles données à mettre à jour
 
 3. Paramètres :
 
-    question (Object) : Un objet contenant les détails de la question à ajouter. L'objet doit obligatoirement inclure un champ questionId unique.
+    Structure de question : {
+        questionId(int),
+        surveyId(id),
+        title(string),
+        type(string),
+        option(object){minValue(int), maxValue(int), step(int)}
+    }(Object) : Un objet contenant les détails de la question à ajouter. L'objet doit obligatoirement inclure un champ questionId unique.
 
 4. Retourne :
 
@@ -221,7 +221,10 @@ Utilisez cette fonction lorsque vous souhaitez ajouter de nouvelles questions à
 
 3. Paramètres :
 
-   answer (Object) : Un objet contenant les détails de la réponse à ajouter. L'objet doit obligatoirement inclure un champ answerId unique.
+   Structure de answer:{
+    answerId(int),
+    title(string)
+   } (Object) : Un objet contenant les détails de la réponse à ajouter. L'objet doit obligatoirement inclure un champ answerId unique.
 
 4. Retourne :
 
@@ -276,12 +279,15 @@ Utilisez cette fonction lorsque vous avez besoin de supprimer une réponse spéc
 
 2. Signature :
 
-  async function edit(answerId, newDonnee)
+  async function edit(answerId, answer)
 
 3. Paramètres :
 
    answerId (int) : L'identifiant unique de la réponse à modifier.
-newDonnee (Object) : Un objet contenant les nouvelles données à mettre à jour pour la réponse.
+Structure de answer:{
+    answerId(int),
+    title(string)
+   } (Object) : Un objet contenant les nouvelles données à mettre à jour pour la réponse.
 
 4. Retourne :
 
