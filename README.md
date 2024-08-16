@@ -17,26 +17,26 @@ Suivez ces étapes pour configurer le projet sur votre machine locale en utilisa
 
 1. **Clonez le repository :**
 
-    ```bash
-    git clone https://github.com/semthillo/surveyApp.git
-    ```
+   ```bash
+   git clone https://github.com/semthillo/surveyApp.git
+   ```
 
 2. **Accédez au dossier du projet :**
 
-    ```bash
-    cd surveyApp
-    ```
+   ```bash
+   cd surveyApp
+   ```
 
 3. **Installez les dépendances :**
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 4. **Configurez la base de données :**
 
-    - Assurez-vous que MongoDB est en cours d'exécution sur votre machine locale.
-    - Mettez les paramètres de connexion dans `config/db.js`.
+   - Assurez-vous que MongoDB est en cours d'exécution sur votre machine locale.
+   - Mettez les paramètres de connexion dans `config/db.js`.
 
 ## Utilisation
 
@@ -48,261 +48,129 @@ node ./src/index.js
 
 ## Documentation détaillée pour chaque fonction des modules
 
-   #### surveyModule.save
+### SurveyModule :
+
+#### surveyModule.save(survey)
+
 1. Description :
-    Cette fonction asynchrone permet d'ajouter une nouvelle enquête à la collection surveys dans MongoDB. Elle vérifie d'abord si une enquête avec le même surveyId existe déjà. Si c'est le cas, la fonction lève une erreur pour éviter les doublons.
+   Ajoute une nouvelle enquête , retoune l'insertion.
 
-2. Signature :
-    async function save(survey)
-
-3. Paramètres :
-structure de survey :
-{surveyId (int), 
-name (string), 
-description(string), 
-createAt(date), 
-createBy(object)
-{employeeNane(string) employeeRole(string)}
-} (Object): Un objet contenant les détails de l'enquête à ajouter. L'objet doit obligatoirement inclure un champ surveyId unique.
-
-4. Retourne :
-
-5. (Promise) : Retourne une promesse qui se résout avec le résultat de l'insertion si l'enquête est ajoutée avec succès. Si une enquête avec le même surveyId existe déjà, une erreur est levée
-
-6. Cas d'utilisation :
-
-    Utilisez cette fonction lorsque vous souhaitez ajouter de nouvelles enquêtes à votre base de données tout en garantissant que chaque enquête a un surveyId unique.
-
-    
+2. Paramètres :
+   structure de survey :
+   {surveyId (int),
+   name (string),
+   description(string),
+   createAt(date),
+   createBy(object)
+   {employeeNane(string) employeeRole(string)}
+   } (Object): Un objet contenant les détails de l'enquête à ajouter.
 
 #### surveyModule.listSurvey
+
 1. Description :
-    Cette fonction asynchrone récupère et affiche la liste de toutes les enquêtes stockées dans la collection surveys de MongoDB. Elle retourne un tableau contenant tous les objets d'enquête.
+   Récupère et affiche la liste de toutes les enquêtes, retourne un tableau contenant tous les objets d'enquête.
 
-2. Signature :
-    async function listSurvey()
+2. Paramètres :
+   Cette fonction ne prend aucun paramètre.
 
-3. Paramètres :
+#### surveyModule.destroy(surveyId)
 
-    Cette fonction ne prend aucun paramètre.
-
-4. Retourne :
-
-5. (Promise) : Retourne une promesse qui se résout avec un tableau d'objets représentant les enquêtes récupérées. En cas d'erreur, une exception est levée.
-
-6. Cas d'utilisation :
-
-    Utilisez cette fonction lorsque vous souhaitez récupérer et examiner toutes les enquêtes présentes dans la base de données.
-
-
-    
-
-#### surveyModule.destroy
 1. Description :
-    Cette fonction asynchrone supprime une enquête spécifique de la collection surveys dans MongoDB en fonction de son surveyId. Si l'enquête n'existe pas, elle retourne null et affiche un message.
+   Cette fonction supprime une enquête spécifique, retourne null si l'id n'existe pas
 
-2. Signature :
-    async function destroy(surveyId)
+2. Paramètres :
+   surveyId (int)
 
-3. Paramètres :
+#### surveyModule.edit(surveyId, newDonnee)
 
-    surveyId (int) : L'identifiant unique de l'enquête à supprimer.
-
-4. Retourne :
-
-5. (Promise) : Retourne une promesse qui se résout avec le résultat de la suppression si l'enquête est trouvée et supprimée avec succès. Si l'enquête n'existe pas, la fonction retourne null.
-
-6. Cas d'utilisation :
-
-      Utilisez cette fonction lorsque vous avez besoin de supprimer une enquête spécifique de votre base de données en fournissant son surveyId.
-
-
-#### surveyModule.edit
 1. Description :
-    Cette fonction asynchrone permet de modifier une enquête spécifique dans la collection surveys de MongoDB en fonction de son surveyId. Si l'enquête n'existe pas, elle retourne null et affiche un message.
+   Permet de modifier une enquête spécifique, retourne null si l'id n'existe pas
 
-2. Signature :
-    async function edit(surveyId, newDonnee)
+2. Paramètres :
+   surveyId (int)
+   structure de newDonnee(Object) :
+   {surveyId (int),
+   name (string),
+   description(string),
+   createAt(date),
+   createBy(object)
+   {employeeNane(string) employeeRole(string)}
+   }
 
-3. Paramètres :
+### questionModule :
 
-    surveyId (int) : L'identifiant unique de l'enquête à modifier.
-structure de newDonnee :
-{surveyId (int), 
-name (string), 
-description(string), 
-createAt(date), 
-createBy(object)
-{employeeNane(string) employeeRole(string)}
-} (Object) : Un objet contenant les nouvelles données à mettre à jour pour l'enquête.
+#### questionsModule.save(question)
 
-4. Retourne :
-
-5. (Promise) : Retourne une promesse qui se résout avec le résultat de la mise à jour si l'enquête est trouvée et modifiée avec succès. Si l'enquête n'existe pas, la fonction retourne null.
-
-
-6. Cas d'utilisation :
-
-     Utilisez cette fonction pour modifier les détails d'une enquête existante dans la base de données en fournissant son surveyId et les nouvelles données.
-
-
-#### questionsModule.save
 1. Description :
-    Cette fonction asynchrone permet d'ajouter une nouvelle question à la collection questions dans MongoDB. Elle vérifie d'abord si une question avec le même questionId existe déjà. Si c'est le cas, la fonction lève une erreur pour éviter les doublons.
+   permet d'ajouter une nouvelle question, retourne l'insertion.
 
-2. Signature :
-    async function save(question)
+2. Paramètres :
+   Structure de question (Object): {
+   questionId(int),
+   surveyId(id),
+   title(string),
+   type(string),
+   option(object){minValue(int), maxValue(int), step(int)}
+   }
 
-3. Paramètres :
+#### questionsModule.listquestion()
 
-    Structure de question : {
-        questionId(int),
-        surveyId(id),
-        title(string),
-        type(string),
-        option(object){minValue(int), maxValue(int), step(int)}
-    }(Object) : Un objet contenant les détails de la question à ajouter. L'objet doit obligatoirement inclure un champ questionId unique.
-
-4. Retourne :
-
-5. (Promise) : Retourne une promesse qui se résout avec le résultat de l'insertion si la question est ajoutée avec succès. Si une question avec le même questionId existe déjà, une erreur est levée.
-
-6. Cas d'utilisation :
-Utilisez cette fonction lorsque vous souhaitez ajouter de nouvelles questions à votre base de données tout en garantissant que chaque question a un questionId unique.
-
-
-#### questionsModule.listquestion
 1. Description :
-    Cette fonction asynchrone récupère et affiche la liste de toutes les questions stockées dans la collection questions de MongoDB. Elle retourne un tableau contenant tous les objets de question.
+   Récupère et affiche la liste de toutes les question, retourne un tableau contenant tous les objets de question.
 
-2. Signature :
-    async function listquestion()
+2. Paramètres :
+   Cette fonction ne prend aucun paramètre.
 
-3. Paramètres :
+#### questionsModule.destroy(questionId)
 
-    Cette fonction ne prend aucun paramètre.
-
-4. Retourne :
-
-5. (Promise) : Retourne une promesse qui se résout avec un tableau d'objets représentant les questions récupérées. En cas d'erreur, une exception est levée.
-
-6. Cas d'utilisation :
-
-     Utilisez cette fonction lorsque vous souhaitez récupérer et examiner toutes les question présentes dans la base de données.
-
-    
-
-#### questionsModule.destroy
 1. Description :
-    Cette fonction asynchrone supprime une question spécifique de la collection questions dans MongoDB en fonction de son questionId. Si la question n'existe pas, elle retourne null et affiche un message.
+   Supprime une question spécifique, retourne null si l'id n'existe pas
 
-2. Signature :
-    async function destroy(questionId)
+2. Paramètres :
+   questionId (int)
 
-3. Paramètres :
+### answerModule :
 
-    questionId (int) : L'identifiant unique de la question à supprimer.
+#### answersModule.save(answer)
 
-4. Retourne :
-
-5. (Promise) : Retourne une promesse qui se résout avec le résultat de la suppression si la question est trouvée et supprimée avec succès. Si la question n'existe pas, la fonction retourne null.
-
-6. Cas d'utilisation :
-
-      Utilisez cette fonction lorsque vous avez besoin de supprimer une question spécifique de votre base de données en fournissant son surveyId.
-
-
-#### answersModule.save
 1. Description :
-   Cette fonction asynchrone permet d'ajouter une nouvelle réponse à la collection answers dans MongoDB. Elle vérifie d'abord si une réponse avec le même answerId existe déjà. Si c'est le cas, la fonction lève une erreur pour éviter les doublons.
+   Permet d'ajouter une nouvelle réponse, retourne l'insertion
 
-2. Signature :
-   async function save(answer)
+2. Paramètres :
 
-3. Paramètres :
-
-   Structure de answer:{
-    answerId(int),
-    title(string)
-   } (Object) : Un objet contenant les détails de la réponse à ajouter. L'objet doit obligatoirement inclure un champ answerId unique.
-
-4. Retourne :
-
-5. (Promise) : Retourne une promesse qui se résout avec le résultat de l'insertion si la réponse est ajoutée avec succès. Si une réponse avec le même answerId existe déjà, une erreur est levée.
-
-6. Cas d'utilisation :
-Utilisez cette fonction lorsque vous souhaitez ajouter de nouvelles réponses à votre base de données tout en garantissant que chaque réponse a un answerId unique.
+   Structure de answer(Object):{
+   answerId(int),
+   title(string)
+   }
 
 #### answersModule.listanswer
+
 1. Description :
-   Cette fonction asynchrone récupère et affiche la liste de toutes les réponses stockées dans la collection answers de MongoDB. Elle retourne un tableau contenant tous les objets de réponse.
+   Récupère et affiche la liste de toutes les réponses, Retourne un tableau contenant tous les objets de réponse.
 
-2. Signature :
-  async function listanswer()
-
-
-3. Paramètres :
-
+2. Paramètres :
    Cette fonction ne prend aucun paramètre.
-    Retourne :
 
-4. (Promise) : Retourne une promesse qui se résout avec un tableau d'objets représentant les réponses récupérées. En cas d'erreur, une exception est levée.
+#### answersModule.destroy(answerId)
 
-5. Cas d'utilisation :
-Utilisez cette fonction pour obtenir une vue d'ensemble de toutes les réponses stockées dans la base de données.
-
-
-
-#### answersModule.destroy
 1. Description :
-   Cette fonction asynchrone supprime une réponse spécifique de la collection answers dans MongoDB en fonction de son answerId. Si la réponse n'existe pas, elle retourne null et affiche un message.
+   Supprime une réponse spécifique, retourne null si l'id nexiste pas
+2. Paramètres :
+   answerId (int)
 
-2. Signature :
-  async function destroy(answerId)
+#### answersModule.edit(answerId, answer)
 
-
-3. Paramètres :
-
-   answerId (int) : L'identifiant unique de la réponse à supprimer.
-
-4. Retourne :
-
-5. (Promise) : Retourne une promesse qui se résout avec le résultat de la suppression si la réponse est trouvée et supprimée avec succès. Si la réponse n'existe pas, la fonction retourne null.
-
-6. Cas d'utilisation :
-Utilisez cette fonction lorsque vous avez besoin de supprimer une réponse spécifique de votre base de données en fournissant son answerId.
-
-
-#### answersModule.edit
 1. Description :
-   Cette fonction asynchrone permet de modifier une réponse spécifique dans la collection answers de MongoDB en fonction de son answerId. Si la réponse n'existe pas, elle retourne null et affiche un message.
+   Permet de modifier une réponse spécifique, retourne null si l'id n'existe pas
 
-2. Signature :
-
-  async function edit(answerId, answer)
-
-3. Paramètres :
+2. Paramètres :
 
    answerId (int) : L'identifiant unique de la réponse à modifier.
-Structure de answer:{
-    answerId(int),
-    title(string)
+   Structure de answer:{
+   answerId(int),
+   title(string)
    }: (Object) : Un objet contenant les nouvelles données à mettre à jour pour la réponse.
-
-4. Retourne :
-
-5. (Promise) : Retourne une promesse qui se résout avec le résultat de la mise à jour si la réponse est trouvée et modifiée avec succès. Si la réponse n'existe pas, la fonction retourne null. 
-
-6. Cas d'utilisation :
-Utilisez cette fonction pour modifier les détails d'une réponse existante dans la base de données en fournissant son answerId et les nouvelles données.
-
-
-
-
-
 
 ## Authors
 
 Seme Thiilo
-
-
