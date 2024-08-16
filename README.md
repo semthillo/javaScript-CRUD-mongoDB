@@ -108,7 +108,7 @@ question (Object):
   - maxValue(int),
   - step(int)
 
-#### listquestion()
+#### listQuestion()
 
 Récupère et affiche la liste de toutes les question, retourne un tableau contenant tous les objets de question.
 
@@ -129,7 +129,7 @@ answer(Object):
 - answerId(int),
 - title(string)
 
-#### listanswer
+#### listAnswer
 
 Récupère et affiche la liste de toutes les réponses, Retourne un tableau contenant tous les objets de réponse.
 Cette fonction ne prend aucun paramètre.
@@ -152,4 +152,4 @@ Structure de answer:
 
 ## Authors
 
-Seme Thiilo
+[Seme Thiilo](https://github.com/semthillo)
