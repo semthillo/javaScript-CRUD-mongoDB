@@ -54,16 +54,15 @@ node ./src/index.js
 
 Ajoute une nouvelle enquête , retoune l'insertion.
 
-   structure de survey :
+survey(object) :
 
-   {
-   surveyId (int),
-   name (string),
-   description(string),
-   createAt(date),
-   createBy(object)
-   {employeeNane(string) employeeRole(string)}
-   }
+- surveyId (int),
+- name (string),
+- description(string),
+- createAt(date),
+- createBy(object) :
+  - employeeNane(string)
+  - employeeRole(string)
 
 #### listSurvey()
 
@@ -74,7 +73,6 @@ Cette fonction ne prend aucun paramètre.
 
 Cette fonction supprime une enquête spécifique, retourne null si l'id n'existe pas.
 
-
 surveyId (int)
 
 #### edit(surveyId, newDonnee)
@@ -83,14 +81,15 @@ Permet de modifier une enquête spécifique, retourne null si l'id n'existe pas
 
 surveyId (int)
 
-structure de newDonnee(Object) :
-{surveyId (int),
-name (string),
-description(string),
-createAt(date),
-createBy(object)
-{employeeNane(string) employeeRole(string)}
-}
+newDonnee(Object) :
+
+- surveyId (int),
+- name (string),
+- description(string),
+- createAt(date),
+- createBy(object):
+  - employeeNane(string) ,
+  - employeeRole(string)
 
 ### questionModule :
 
@@ -98,13 +97,16 @@ createBy(object)
 
 permet d'ajouter une nouvelle question, retourne l'insertion.
 
-Structure de question (Object): {
-questionId(int),
-surveyId(id),
-title(string),
-type(string),
-option(object){minValue(int), maxValue(int), step(int)}
-}
+question (Object):
+
+- questionId(int),
+- surveyId(id),
+- title(string),
+- type(string),
+- option(object)
+  - minValue(int),
+  - maxValue(int),
+  - step(int)
 
 #### listquestion()
 
@@ -122,10 +124,10 @@ questionId (int)
 #### save(answer)
 
 Permet d'ajouter une nouvelle réponse, retourne l'insertion
-Structure de answer(Object):{
-answerId(int),
-title(string)
-}
+answer(Object):
+
+- answerId(int),
+- title(string)
 
 #### listanswer
 
@@ -141,12 +143,12 @@ answerId (int)
 
 Permet de modifier une réponse spécifique, retourne null si l'id n'existe pas
 
-answerId (int) 
+answerId (int)
 
-Structure de answer:{
-answerId(int),
-title(string)
-}: (Object) : Un objet contenant les nouvelles données à mettre à jour pour la réponse.
+Structure de answer:
+
+- answerId(int),
+- title(string)
 
 ## Authors
 
