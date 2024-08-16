@@ -54,7 +54,7 @@ node ./src/index.js
 
 Ajoute une nouvelle enquête , retoune l'insertion.
 
-   structure de survey 
+   structure de survey :
 
    {
    surveyId (int),
