@@ -152,4 +152,4 @@ Structure de answer:
 
 ## Authors
 
-[Seme Thiilo](https://github.com/semthillo)
+[Seme Thillo](https://github.com/semthillo)
