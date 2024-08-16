@@ -50,126 +50,99 @@ node ./src/index.js
 
 ### SurveyModule :
 
-#### surveyModule.save(survey)
+#### save(survey)
 
-1. Description :
-   Ajoute une nouvelle enquête , retoune l'insertion.
+Ajoute une nouvelle enquête , retoune l'insertion.
+structure de survey :
+{surveyId (int),
 
-2. Paramètres :
-   structure de survey :
-   {surveyId (int),
-   name (string),
-   description(string),
-   createAt(date),
-   createBy(object)
-   {employeeNane(string) employeeRole(string)}
-   } (Object): Un objet contenant les détails de l'enquête à ajouter.
+name (string),
+description(string),
+createAt(date),
+createBy(object)
+{employeeNane(string) employeeRole(string)}
+}
 
-#### surveyModule.listSurvey
+#### listSurvey()
 
-1. Description :
-   Récupère et affiche la liste de toutes les enquêtes, retourne un tableau contenant tous les objets d'enquête.
+Récupère et affiche la liste de toutes les enquêtes, retourne un tableau contenant tous les objets d'enquête.
+Cette fonction ne prend aucun paramètre.
 
-2. Paramètres :
-   Cette fonction ne prend aucun paramètre.
+#### destroy(surveyId)
 
-#### surveyModule.destroy(surveyId)
+Cette fonction supprime une enquête spécifique, retourne null si l'id n'existe pas
+surveyId (int)
 
-1. Description :
-   Cette fonction supprime une enquête spécifique, retourne null si l'id n'existe pas
+#### edit(surveyId, newDonnee)
 
-2. Paramètres :
-   surveyId (int)
+Permet de modifier une enquête spécifique, retourne null si l'id n'existe pas
 
-#### surveyModule.edit(surveyId, newDonnee)
+surveyId (int)
 
-1. Description :
-   Permet de modifier une enquête spécifique, retourne null si l'id n'existe pas
-
-2. Paramètres :
-   surveyId (int)
-   structure de newDonnee(Object) :
-   {surveyId (int),
-   name (string),
-   description(string),
-   createAt(date),
-   createBy(object)
-   {employeeNane(string) employeeRole(string)}
-   }
+structure de newDonnee(Object) :
+{surveyId (int),
+name (string),
+description(string),
+createAt(date),
+createBy(object)
+{employeeNane(string) employeeRole(string)}
+}
 
 ### questionModule :
 
-#### questionsModule.save(question)
+#### save(question)
 
-1. Description :
-   permet d'ajouter une nouvelle question, retourne l'insertion.
+permet d'ajouter une nouvelle question, retourne l'insertion.
 
-2. Paramètres :
-   Structure de question (Object): {
-   questionId(int),
-   surveyId(id),
-   title(string),
-   type(string),
-   option(object){minValue(int), maxValue(int), step(int)}
-   }
+Structure de question (Object): {
+questionId(int),
+surveyId(id),
+title(string),
+type(string),
+option(object){minValue(int), maxValue(int), step(int)}
+}
 
-#### questionsModule.listquestion()
+#### listquestion()
 
-1. Description :
-   Récupère et affiche la liste de toutes les question, retourne un tableau contenant tous les objets de question.
+Récupère et affiche la liste de toutes les question, retourne un tableau contenant tous les objets de question.
 
-2. Paramètres :
-   Cette fonction ne prend aucun paramètre.
+Cette fonction ne prend aucun paramètre.
 
-#### questionsModule.destroy(questionId)
+#### destroy(questionId)
 
-1. Description :
-   Supprime une question spécifique, retourne null si l'id n'existe pas
-
-2. Paramètres :
-   questionId (int)
+Supprime une question spécifique, retourne null si l'id n'existe pas
+questionId (int)
 
 ### answerModule :
 
-#### answersModule.save(answer)
+#### save(answer)
 
-1. Description :
-   Permet d'ajouter une nouvelle réponse, retourne l'insertion
+Permet d'ajouter une nouvelle réponse, retourne l'insertion
+Structure de answer(Object):{
+answerId(int),
+title(string)
+}
 
-2. Paramètres :
+#### listanswer
 
-   Structure de answer(Object):{
-   answerId(int),
-   title(string)
-   }
+Récupère et affiche la liste de toutes les réponses, Retourne un tableau contenant tous les objets de réponse.
+Cette fonction ne prend aucun paramètre.
 
-#### answersModule.listanswer
+#### destroy(answerId)
 
-1. Description :
-   Récupère et affiche la liste de toutes les réponses, Retourne un tableau contenant tous les objets de réponse.
+Supprime une réponse spécifique, retourne null si l'id nexiste pas
+answerId (int)
 
-2. Paramètres :
-   Cette fonction ne prend aucun paramètre.
+#### edit(answerId, answer)
 
-#### answersModule.destroy(answerId)
+Permet de modifier une réponse spécifique, retourne null si l'id n'existe pas
 
-1. Description :
-   Supprime une réponse spécifique, retourne null si l'id nexiste pas
-2. Paramètres :
-   answerId (int)
+answerId (int) 
 
-#### answersModule.edit(answerId, answer)
-
-1. Description :
-   Permet de modifier une réponse spécifique, retourne null si l'id n'existe pas
-
-2. Paramètres :
-
-   answerId (int) : L'identifiant unique de la réponse à modifier.
-   Structure de answer:{
-   answerId(int),
-   title(string)
-   }: (Object) : Un objet contenant les nouvelles données à mettre à jour pour la réponse.
+Structure de answer:{
+answerId(int),
+title(string)
+}: (Object) : Un objet contenant les nouvelles données à mettre à jour pour la réponse.
 
 ## Authors
 
