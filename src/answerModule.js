@@ -4,11 +4,11 @@ async function save(answer) {
   try {
     const db = await con();
 
-    const existinganswer = await db
+    const existingAnswer = await db
       .collection("answers")
       .findOne({ answerId: answer.answerId });
 
-    if (existinganswer) {
+    if (existingAnswer) {
       console.log(`une reponse avec l'ID ${answer.answerId} existe déjà.`);
       throw new Error(`erreur`);
     }
@@ -24,7 +24,7 @@ async function save(answer) {
 
 
 
-async function listanswer() {
+async function listAnswer() {
   try {
     const db = await con();
 
@@ -51,9 +51,9 @@ async function destroy(answerId) {
   try {
     const db = await con();
 
-    const existinganswer = await db.collection("answers").findOne({ answerId });
+    const existingAnswer = await db.collection("answers").findOne({ answerId });
 
-    if (!existinganswer) {
+    if (!existingAnswer) {
       console.log(`Aucune reponse trouvée avec l'Id ${answerId}.`);
       return null;
     }
@@ -75,9 +75,9 @@ async function edit(answerId, newDonnee) {
     const db = await con();
 
     
-    const existinganswer = await db.collection("answers").findOne({ answerId });
+    const existingAnswer = await db.collection("answers").findOne({ answerId });
 
-    if (!existinganswer) {
+    if (!existingAnswer) {
       console.log(`Aucune reponse trouvée avec l'Id' ${answerId}.`);
       return null;
     }
@@ -103,7 +103,7 @@ async function edit(answerId, newDonnee) {
 
 module.exports = {
   save,
-  listanswer,
+  listAnswer,
   destroy,
   edit,
 };

@@ -4,11 +4,11 @@ async function save(question) {
   try {
     const db = await con();
 
-    const existingquestion = await db
+    const existingQuestion = await db
       .collection("questions")
       .findOne({ questionId: question.questionId });
 
-    if (existingquestion) {
+    if (existingQuestion) {
       console.log(`une question avec l'ID ${question.questionId} existe déjà.`);
       throw new Error(`erreur`);
     }
@@ -23,7 +23,7 @@ async function save(question) {
 }
 
 
-async function listquestion() {
+async function listQuestion() {
   try {
     const db = await con();
 
@@ -48,9 +48,9 @@ async function destroy(questionId) {
   try {
     const db = await con();
 
-    const existingquestion = await db.collection("questions").findOne({ questionId });
+    const existingQuestion = await db.collection("questions").findOne({ questionId });
 
-    if (!existingquestion) {
+    if (!existingQuestion) {
       console.log(`Aucune question trouvée avec l'Id ${questionId}.`);
       return null;
     }
@@ -72,9 +72,9 @@ async function edit(questionId, newDonnee) {
     const db = await con();
 
     
-    const existingquestion = await db.collection("questions").findOne({ questionId });
+    const existingQuestion = await db.collection("questions").findOne({ questionId });
 
-    if (!existingquestion) {
+    if (!existingQuestion) {
       console.log(`Aucune question trouvée avec l'Id' ${questionId}.`);
       return null;
     }
@@ -100,7 +100,7 @@ async function edit(questionId, newDonnee) {
 
 module.exports = {
   save,
-  listquestion,
+  listQuestion,
   destroy,
   edit,
 };
